@@ -13,10 +13,11 @@
 			</div>
 		</div>
 		<button onmousemove="move_yes()" class="move_button" id='no'>不是</button>
-		<button class="stay" onclick="move_no()">是</button>
+		<button class="stay" onclick="move_no()" onmousemove='confirm()'>是</button>
 	</body>
 	<script>
 		var time = 0;
+		var flag = true;
 		
 		function round(number, precision) {
 		    return Math.round(+number + 'e' + precision) / Math.pow(10, precision);
@@ -58,9 +59,18 @@
 		}
 		
 		const move_no = function(){
+			if(flag){
+				alert('想好了哟！');
+				flag = !flag;
+				return;
+			}
 			alert('你这只傻居居。');
 			alert('可是我最喜欢居居了(〃\'▽\'〃)');
 			window.close();
+		}
+		
+		const confirm = function(){
+			
 		}
 	</script>
 </html>
